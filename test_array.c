@@ -81,7 +81,7 @@ void test_array_long_long() {
     array_delete(array);
 }
 
-void test_huge_array() {
+void test_array_huge() {
     Array array = array_new(sizeof(long), 1000000);
     for (size_t i = 0; i < 1000000; i++) {
         if (!array_insert(&array, i, &i)) {
@@ -119,6 +119,6 @@ void test_array() {
     test_array_chars();
     test_array_strings();
     test_array_long_long();
-    test_huge_array();
+    test_array_huge();
     test_array_performance();
 }

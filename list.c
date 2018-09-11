@@ -17,36 +17,12 @@ void list_delete(List *list) {
     }
 }
 
-void list_push_front(List *list, void *value) {
-    Element *element = malloc(sizeof(Element));
-    element->value = value;
-    element->next = list->head;
-
-    list->head = element;
-    if (list->tail == NULL) {
-        list->tail = element;
-    }
-}
-
 void *list_pop_front(List *list) {
     Element *head = list->head;
     list->head = head->next;
     void *value = head->value;
     free(head);
     return value;
-}
-
-void list_push_back(List *list, void *value) {
-    Element *element = malloc(sizeof(Element));
-    element->value = value;
-    element->next = NULL;
-
-    if (list->tail == NULL) {
-        list->head = element;
-    } else {
-        list->tail->next = element;
-    }
-    list->tail = element;
 }
 
 void *list_pop_back(List *list) {
@@ -66,4 +42,28 @@ void *list_pop_back(List *list) {
     void *value = tail->value;
     free(tail);
     return value;
+}
+
+void list_push_front(List *list, void *value) {
+    Element *element = malloc(sizeof(Element));
+    element->value = value;
+    element->next = list->head;
+
+    list->head = element;
+    if (list->tail == NULL) {
+        list->tail = element;
+    }
+}
+
+void list_push_back(List *list, void *value) {
+    Element *element = malloc(sizeof(Element));
+    element->value = value;
+    element->next = NULL;
+
+    if (list->tail == NULL) {
+        list->head = element;
+    } else {
+        list->tail->next = element;
+    }
+    list->tail = element;
 }

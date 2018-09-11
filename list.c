@@ -32,10 +32,7 @@ void *list_pop_back(List *list) {
         list->head = NULL;
         list->tail = NULL;
     } else {
-        list->tail = list->head;
-        while (list->tail->next->next != NULL) {
-            list->tail = list->tail->next;
-        }
+        list->tail = tail->previous;
         list->tail->next = NULL;
     }
 
@@ -47,6 +44,7 @@ void *list_pop_back(List *list) {
 void list_push_front(List *list, void *value) {
     Element *element = malloc(sizeof(Element));
     element->value = value;
+    element->previous = NULL;
     element->next = list->head;
 
     list->head = element;
@@ -58,6 +56,7 @@ void list_push_front(List *list, void *value) {
 void list_push_back(List *list, void *value) {
     Element *element = malloc(sizeof(Element));
     element->value = value;
+    element->previous = list->tail;
     element->next = NULL;
 
     if (list->tail == NULL) {

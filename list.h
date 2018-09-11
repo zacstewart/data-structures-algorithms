@@ -2,6 +2,7 @@
 
 typedef struct Element {
     void *value;
+    struct Element *previous;
     struct Element *next;
 } Element;
 

@@ -98,7 +98,7 @@ void test_list_performance_push_pop_front() {
 }
 
 void test_list_performance_push_pop_back() {
-    size_t len = 10000;
+    size_t len = 1000000;
     struct timespec start, end;
     size_t vals[len];
     for (size_t i = 0; i < len; i++) {

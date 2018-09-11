@@ -67,6 +67,26 @@ void test_list_pop_back() {
     list_delete(&list);
 }
 
+void test_list_empty() {
+    List list = list_new();
+    ASSERT(list_empty(&list), "List was not empty");
+
+    int v1 = 1;
+    list_push_front(&list, &v1);
+    ASSERT(!list_empty(&list), "List was empty");
+
+    list_pop_front(&list);
+    ASSERT(list_empty(&list), "List was not empty");
+
+    list_push_front(&list, &v1);
+    ASSERT(!list_empty(&list), "List was empty");
+
+    list_pop_back(&list);
+    ASSERT(list_empty(&list), "List was not empty");
+
+    list_delete(&list);
+}
+
 void test_list_performance_push_pop_front() {
     size_t len = 1000000;
     struct timespec start, end;
@@ -133,6 +153,7 @@ void test_list() {
     test_list_pop_front();
     test_list_push_back();
     test_list_pop_back();
+    test_list_empty();
     test_list_performance_push_pop_front();
     test_list_performance_push_pop_back();
 }

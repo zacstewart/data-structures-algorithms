@@ -17,6 +17,10 @@ void list_delete(List *list) {
     }
 }
 
+int list_empty(List *list) {
+    return list->head == NULL;
+}
+
 void *list_pop_front(List *list) {
     Element *head = list->head;
     list->head = head->next;

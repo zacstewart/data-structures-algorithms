@@ -15,6 +15,8 @@ List list_new();
 
 void list_delete(List *);
 
+int list_empty(List *);
+
 void *list_pop_front(List *list);
 
 void *list_pop_back(List *list);

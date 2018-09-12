@@ -1,3 +1,6 @@
+#ifndef LIST
+#define LIST 1
+
 #include <stdlib.h>
 
 typedef struct Element {
@@ -24,3 +27,5 @@ void *list_pop_back(List *list);
 void list_push_front(List *list, void *value);
 
 void list_push_back(List *list, void *value);
+
+#endif

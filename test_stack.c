@@ -74,4 +74,5 @@ void test_stack() {
     test_stack_top();
     test_stack_pop();
     test_stack_empty();
+    test_clear();
 }
